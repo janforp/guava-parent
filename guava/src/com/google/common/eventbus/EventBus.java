@@ -128,9 +128,10 @@ public class EventBus {
     public EventBus(String identifier) {
         this(
                 identifier,
-                MoreExecutors.directExecutor(),
+                MoreExecutors.directExecutor(),//调用线程执行事件
                 Dispatcher.perThreadDispatchQueue(),
-                LoggingHandler.INSTANCE);
+                LoggingHandler.INSTANCE
+        );
     }
 
     /**

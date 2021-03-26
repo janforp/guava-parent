@@ -24,6 +24,7 @@ abstract class Dispatcher {
      * Returns a dispatcher that queues events that are posted reentrantly on a thread that is already
      * dispatching an event, guaranteeing that all events posted on a single thread are dispatched to
      * all subscribers in the order they are posted.
+     * -- 返回一个分派器，该分派器将在已分派事件的线程上重新发布的事件排队，以确保在单个线程上发布的所有事件均按发布顺序分派给所有订阅者。
      *
      * <p>When all subscribers are dispatched to using a <i>direct</i> executor (which dispatches on
      * the same thread that posts the event), this yields a breadth-first dispatch order on each
