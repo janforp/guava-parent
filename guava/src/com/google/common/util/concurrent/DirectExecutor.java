@@ -1,37 +1,26 @@
-/*
- * Copyright (C) 2007 The Guava Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
- */
-
 package com.google.common.util.concurrent;
 
 import com.google.common.annotations.GwtCompatible;
+
 import java.util.concurrent.Executor;
 
 /**
- * An {@link Executor} that runs each task in the thread that invokes {@link Executor#execute
- * execute}.
+ * An {@link Executor} that runs each task in the thread that invokes {@link Executor#execute execute}.
+ * -- 一个{@link Executor}，该线程在调用{@link Executor＃execute execute}的线程中运行每个任务。
  */
 @GwtCompatible
 enum DirectExecutor implements Executor {
-  INSTANCE;
 
-  @Override
-  public void execute(Runnable command) {
-    command.run();
-  }
+    INSTANCE;
 
-  @Override
-  public String toString() {
-    return "MoreExecutors.directExecutor()";
-  }
+    @Override
+    public void execute(Runnable command) {
+        //直接运行，没有启动新线程
+        command.run();
+    }
+
+    @Override
+    public String toString() {
+        return "MoreExecutors.directExecutor()";
+    }
 }
